@@ -8,7 +8,7 @@
     "xlswriter",
     "excel"
   ],
-  "description": "",
+  "description": "快速导出 excel 表格",
   "autoload": {
     "psr-4": {
       "Hzx\\ExcelDto\\": "src/"
