@@ -31,7 +31,7 @@ class ExportExcel extends AbstractAnnotation
     /**
      * @var string
      */
-    public string $path;
+    public string $path = BASE_PATH . '/storage/exports';
 
     /**
      * @var string
