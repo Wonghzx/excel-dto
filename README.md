@@ -59,6 +59,7 @@ class Test
 | filename     | 为空自动生成，（可填写为传参参数）    |
 
 ```php
+<?php
     use Hzx\ExcelDto\Annotation\ExportExcel;
 
     /**
@@ -96,9 +97,36 @@ class Test
         }
         return $data;
     }
-    $this->test1('test.xlsx');
-    $this->test2();
+    $result1 = $this->test1('test.xlsx');
+    $result2 = $this->test2();
+    
+   print_r($result1);
+   Array
+    (
+        [basic] => Array
+            (
+                [property] => test
+                [path] => /www/poj/storage/exports
+                [group] => local
+                [filename] => test.xlsx
+                [full_path] => www/poj/storage/exports/2021091810/test.xlsx
+            )
+    
+        [data] => Array
+            (
+                [0] => Array
+                    (
+                        [name]      => Loan Officer,
+                        [email]     => Rylee_Forth2217@twipet.com,
+                        [longitude] => 113.23,
+                        [latitude]  => 23.16,
+                    )
+    
+            )
+    
+    )
 ```
+
 ## 导出结果
 
 ![img](https://user-images.githubusercontent.com/23250999/133747646-4e319abc-3d53-42dd-a06c-c36ca86119f7.png)

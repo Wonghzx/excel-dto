@@ -34,8 +34,9 @@ class GenExcelManager
         $this->config = $config;
     }
 
-    public function getDriver($name = 'local')
+    public function getDriver(array $basic = [])
     {
+        $name = $basic['group'] ?: 'local';
         if (isset($this->drivers[$name]) && $this->drivers[$name] instanceof DriverInterface) {
             return $this->drivers[$name];
         }
@@ -44,7 +45,7 @@ class GenExcelManager
         if (!isset($config) || empty($config[$name])) {
             $config = [
                 'driver' => LocalDriver::class,
-                'root'   => BASE_PATH . '/storage/exports',
+                'root'   => $basic['path'] ?: BASE_PATH . '/storage/exports',
             ];
         }
         $driverClass = $config['driver'];

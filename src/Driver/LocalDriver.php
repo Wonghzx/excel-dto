@@ -17,13 +17,9 @@ use Psr\Container\ContainerInterface;
 class LocalDriver extends Driver
 {
 
-
-
     public function __construct(ContainerInterface $container, array $config)
     {
         parent::__construct($container, $config);
-
-
     }
 
     public function handle(array $data = [])

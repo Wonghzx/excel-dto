@@ -45,7 +45,7 @@ abstract class Driver implements DriverInterface
         if (!file_exists($this->storePath)) {
             $results = mkdir($this->storePath, 0777, true);
             if (!$results) {
-                throw new DtoException('Has no permission to create directory!');
+                throw new DtoException(sprintf('创建目录失败，无权限 create %s！', $this->storePath));
             }
         }
         $this->config = $config;

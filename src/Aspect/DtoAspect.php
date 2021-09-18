@@ -55,9 +55,9 @@ class DtoAspect extends AbstractAspect
         /* 获取返回数据 */
         $result['data'] = $proceedingJoinPoint->process();
 
-        $group = $result['basic']['group'];
-        ($this->manager->getDriver($group))->handle($result);
-
+        $filename = ($this->manager->getDriver($result['basic']))->handle($result);
+        $result['basic']['full_path'] = $filename;
+        unset($result['field']);
         return $result;
     }
 }
